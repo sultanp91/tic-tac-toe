@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.game-board-container {
+    height: 50rem;
+    width: 50rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 2px solid black;
+    margin: 10rem auto;
+}
+
+.grid-boxes {
+    border: 1px solid black;
+    font-size: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
