@@ -15,12 +15,21 @@ let newGameboard = function () {
 
 }
 
+let resetGame = function(){
+    boardArray.splice(0, boardArray.length)
+    for(let i = 0; i < 9; i++){
+        boardArray.push("")
+    }
+    playerOne.turn = true;
+    playerTwo.turn = false;
+    return newGameboard()
+}
+
 newGameboard();
 
-let playerOne = {
-    choice: "X",
-    turn: true,
-    checkWin: function () {
+let playerFactory = function (choice, turn){
+   
+    const checkWin = function () {
         let playerChoice = this.choice;
         if(boardArray[0] === playerChoice && boardArray[1] === playerChoice && boardArray[2] === playerChoice){
             alert("working")
@@ -42,34 +51,13 @@ let playerOne = {
             alert("working")
         }
     }
+
+    return {choice, turn, checkWin};
+
 }
 
-let playerTwo = {
-    choice: "O",
-    turn: false,
-    checkWin: function () {
-        let playerChoice = this.choice;
-        if(boardArray[0] === playerChoice && boardArray[1] === playerChoice && boardArray[2] === playerChoice){
-            alert("working")
-        } else if(boardArray[3] === playerChoice && boardArray[4] === playerChoice && boardArray[5] === playerChoice){
-            alert("working")
-        } else if(boardArray[6] === playerChoice && boardArray[7] === playerChoice && boardArray[8] === playerChoice){
-            alert("working")
-        } else if(boardArray[0] === playerChoice && boardArray[3] === playerChoice && boardArray[6] === playerChoice){
-            alert("working")
-        } else if(boardArray[3] === playerChoice && boardArray[4] === playerChoice && boardArray[5] === playerChoice){
-            alert("working")
-        } else if(boardArray[1] === playerChoice && boardArray[4] === playerChoice && boardArray[7] === playerChoice){
-            alert("working")
-        } else if(boardArray[2] === playerChoice && boardArray[5] === playerChoice && boardArray[8] === playerChoice){
-            alert("working")
-        } else if(boardArray[0] === playerChoice && boardArray[4] === playerChoice && boardArray[8] === playerChoice){
-            alert("working")
-        } else if(boardArray[2] === playerChoice && boardArray[4] === playerChoice && boardArray[6] === playerChoice){
-            alert("working")
-        }
-    }
-}
+let playerOne = playerFactory("X", true);
+let playerTwo = playerFactory("O", false)
 
 let gameController = {
     playRound: function () {
