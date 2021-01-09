@@ -10,8 +10,8 @@ html {
 }
 
 .game-board-container {
-  height: 50rem;
-  width: 50rem;
+  height: 40rem;
+  width: 40rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[3];
@@ -34,5 +34,17 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  padding: 1.5rem 8rem;
+}
+
+button {
+  padding: 2rem 5rem;
 }
 /*# sourceMappingURL=main.css.map */
